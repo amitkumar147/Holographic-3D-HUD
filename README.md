@@ -58,4 +58,4 @@ A futuristic sci-fi interface inspired by Iron Man's JARVIS, integrating glowing
 
 ## 📁 Project Structure
 ## screenshot 
-(Screenshot_20251121_123530_Acode.jpg)
+(screenshot1.png)

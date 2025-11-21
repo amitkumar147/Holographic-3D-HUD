@@ -6,7 +6,7 @@ A futuristic sci-fi interface inspired by Iron Man's JARVIS, integrating glowing
 ---
 
 ## 🔥 Live Demo  
-👉 **[Click Here to View Live HUD](https://your-username.github.io/holographic-3d-hud/)**  
+👉 **[Click Here to View Live HUD](https://your-amitkumar147.github.io/holographic-3d-hud/)**  
 (Replace `your-username` with your GitHub username)
 
 ---

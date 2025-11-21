@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Holographic 3D HUD</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #000;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+    }
+
+    canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .center-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: cyan;
+        font-size: 28px;
+        text-shadow: 0 0 15px cyan;
+        letter-spacing: 2px;
+    }
+</style>
+</head>
+
+<body>
+<canvas id="hud"></canvas>
+<div class="center-text">HOLOGRAPHIC 3D HUD ACTIVE</div>
+
+<script>
+const canvas = document.getElementById("hud");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resize();
+window.onresize = resize;
+
+// Rotating rings effect
+let angle = 0;
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    let x = canvas.width / 2;
+    let y = canvas.height / 2;
+
+    // Outer ring
+    ctx.strokeStyle = "rgba(0,255,255,0.7)";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(x, y, 180, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Rotating ring
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(angle);
+    ctx.strokeStyle = "rgba(0,200,255,0.9)";
+    ctx.beginPath();
+    ctx.arc(0, 0, 120, 0, Math.PI * 1.5);
+    ctx.stroke();
+    ctx.restore();
+
+    // Center pulse dot
+    ctx.fillStyle = "cyan";
+    ctx.shadowBlur = 25;
+    ctx.shadowColor = "cyan";
+    ctx.beginPath();
+    ctx.arc(x, y, 8, 0, Math.PI * 2);
+    ctx.fill();
+
+    angle += 0.01;
+    requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+
+</body>
+</html>
